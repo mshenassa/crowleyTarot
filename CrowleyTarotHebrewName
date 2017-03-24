@@ -1,0 +1,118 @@
+/*
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package crowleytarot;
+import java.util.Scanner;
+
+public class CrowleyTarotHebrewName {
+    public static void main(String[] args){
+    //Create a Scanner
+    Scanner input = new Scanner(System.in);
+       //Create major arcana array
+    String[] majorArcana = {
+            "The Fool", "The Magus", "The High Priestess", 
+            "The Empress", "The Emperor", "The Hierophant", "The Lovers", 
+            "The Chariot", "Adjustment", "The Hermit", "Fortune", "Lust",
+            "The Hanged Man", "Death", "Art", "The Devil", "The Tower",
+            "The Star", "The Moon", "The Sun", "The Aeon", "The Universe"};
+    //Define name strings
+    String firstName, middleName="", lastName, fullName;
+    
+//Prompt user for FirstName 
+    System.out.print("Please enter your first (given) name: ");
+    firstName = input.next();
+
+//Prompt user for MiddleName (or none)
+    System.out.print("Do you have a middle name/further forename? Enter Y for" +
+            " yes or N for no: ");
+    String hasMiddle = input.next();
+    if (hasMiddle.toUpperCase().equals ("Y")) {
+        System.out.print("Please enter your middle name (further forename): ");
+        middleName = input.next();    
+    }
+    //Prompt user for LastName
+    System.out.print("Please enter your last (family) name: ");
+    lastName = input.next();
+    //Assemble fullName and confirm
+    if (hasMiddle.toUpperCase().equals ("Y")) {
+        fullName = firstName + " " + middleName + " " + lastName;
+        }
+    else
+        fullName = firstName + " " + lastName;
+    //Confirm fullName is correct
+    System.out.print("Is your full name " + fullName + "? Enter Y for yes or" +
+        " N for no: ");
+    String correctName = input.next();
+    
+    //Go back to name entry if name is wrong
+    // if (hasMiddle.toUpperCase().equals ("Y")){
+    //    go back to name entry 
+    
+    
+    //Parse strings for first name and lastname
+    int i = 0;
+    String firstNameNum = firstName.toUpperCase().replaceAll("CH", " 8 ");
+    //Convert consonants to appropriate matching based on pronunciation
+    firstNameNum = firstNameNum.replaceAll("CA", "KA");
+    firstNameNum = firstNameNum.replaceAll("CO", "KO");
+    firstNameNum = firstNameNum.replaceAll("CU", "KU");
+    firstNameNum = firstNameNum.replaceAll("CI", "ZI");
+    firstNameNum = firstNameNum.replaceAll("CE", "ZE");
+    firstNameNum = firstNameNum.replaceAll("CY", "ZY");
+    firstNameNum = firstNameNum.replaceAll("GI", "JI");
+    firstNameNum = firstNameNum.replaceAll("GE", "JE");
+    //Perform compund conversions
+    firstNameNum = firstNameNum.replaceAll("SH", " 300 ");
+    firstNameNum = firstNameNum.replaceAll("TH", " 400 ");
+    firstNameNum = firstNameNum.replaceAll("QU", "KW");
+    firstNameNum = firstNameNum.replaceAll("X", "KS");
+    //Convert to numbers
+    firstNameNum = firstNameNum.replaceAll("A", " 1 ");
+    firstNameNum = firstNameNum.replaceAll("B", " 2 ");
+    firstNameNum = firstNameNum.replaceAll("C", "K");
+    firstNameNum = firstNameNum.replaceAll("D", " 4 ");
+    firstNameNum = firstNameNum.replaceAll("E", " 5 ");
+    firstNameNum = firstNameNum.replaceAll("F", " 80 ");
+    firstNameNum = firstNameNum.replaceAll("G", " 3 ");
+    firstNameNum = firstNameNum.replaceAll("H", " 8 ");
+    firstNameNum = firstNameNum.replaceAll("I", " 10 ");
+    firstNameNum = firstNameNum.replaceAll("J", " 10 ");
+    firstNameNum = firstNameNum.replaceAll("K", " 20 ");
+    firstNameNum = firstNameNum.replaceAll("L", " 30 ");
+    firstNameNum = firstNameNum.replaceAll("M", " 40 ");
+    firstNameNum = firstNameNum.replaceAll("N", " 50 ");
+    firstNameNum = firstNameNum.replaceAll("O", " 70 ");
+    firstNameNum = firstNameNum.replaceAll("P", " 80 ");
+    firstNameNum = firstNameNum.replaceAll("Q", " 100 ");
+    firstNameNum = firstNameNum.replaceAll("R", " 200 ");
+    firstNameNum = firstNameNum.replaceAll("S", " 60 ");
+    firstNameNum = firstNameNum.replaceAll("T", " 9 ");
+    firstNameNum = firstNameNum.replaceAll("U", " 6 ");
+    firstNameNum = firstNameNum.replaceAll("V", " 6 ");
+    firstNameNum = firstNameNum.replaceAll("W", " 6 ");
+    firstNameNum = firstNameNum.replaceAll("Y", " 10 ");
+    firstNameNum = firstNameNum.replaceAll("Z", " 90 ");
+    int sum = 0;
+   for (int j = 0; j < firstNameNum.length(); j++) {
+        while (j>=1 && firstNameNum.charAt(j) != ' ' && firstNameNum.charAt(j+1) == ' '){
+            sum += Integer.parseInt(firstNameNum.substring(j,j+1));
+            break;
+        }
+        while (j>=1 && firstNameNum.charAt(j) != ' ' && firstNameNum.charAt (j+1) != ' '){
+            sum += Integer.parseInt(firstNameNum.substring(j,j+2));
+            break;
+        }
+    }
+    
+    System.out.println("\n\n" + firstName + " is equivalent to " + firstNameNum + 
+            ", which adds up to " + sum);
+    //Calculate hebrew letter equivalents 
+    //Display hebrew letter equivalents in table with values
+    //Calculate cross-summed values
+    //Indicate first name card
+    //Indicate last name card
+    
+    }}
